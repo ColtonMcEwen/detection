@@ -7,12 +7,10 @@ function getCurrentTabUrl(callback) {
     chrome.tabs.query(queryInfo, function(tabs) {
       var tab = tabs[0];
       var url = tab.url;
-      callback("http://34.212.202.13:8000/?u="+url);
+      // callback("http://34.212.202.13:8000/?u="+url); // EC2
+      callback("http://127.0.0.1:8000/?u="+url); // Localhost
     });
   }
-
-  // http://34.211.71.160:8000/ -- EC2
-  // http://127.0.0.1:8000/ -- Localhost
 
   function renderURL(statusText) {
     document.getElementById('urlName').textContent = statusText;
