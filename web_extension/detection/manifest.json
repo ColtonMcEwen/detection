@@ -1,0 +1,20 @@
+{
+    "name": "detection",
+    "version": "1.0",
+    "manifest_version": 2,
+    "author": "Colton McEwen",
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["popup.js"]
+        }
+    ],
+    "browser_action": {
+        "default_icon": "logo.png",
+        "default_popup": "popup.html",
+        "default_title": "Detection"
+    },
+    "permissions": [
+        "tabs"
+    ]
+}
