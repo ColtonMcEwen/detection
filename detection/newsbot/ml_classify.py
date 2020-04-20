@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 import os, sys, re, time
 
-proj_path = "/Users/colton/detection/"
+proj_path = "/Users/colton/Documents/colton/projects/detection/detection/"
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "detection.settings")
 sys.path.append(proj_path)
 os.chdir(proj_path)
