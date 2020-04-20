@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<title>Detection</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<head>
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	</head>
+	<body>
+	<style>
+		:root {
+			--degrees: rotate({{ fin_totalFakeDeg|floatformat }}deg);
+		}
+		.circle-wrap .circle .mask.full,
+		.circle-wrap .circle .fill {
+			animation: fill ease-in-out 1s;
+			transform: var(--degrees);
+		}
+
+		@keyframes fill {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: var(--degrees);
+			}
+		}
+	</style>
+
+	{% if fin_totFake >= 66 %}
+	<style>
+		.circle-wrap .circle .mask .fill {
+			clip: rect(0px, 75px, 150px, 0px);
+			background-color: #FF1608;
+		}
+	</style>
+	{% elif fin_totFake < 66 and fin_totFake >= 33 %}
+	<style>
+		.circle-wrap .circle .mask .fill {
+			clip: rect(0px, 75px, 150px, 0px);
+			background-color: #FFF013;
+		}
+	</style>
+	{% elif fin_totFake >= 0 and fin_totFake < 33 %}
+	<style>
+		.circle-wrap .circle .mask .fill {
+			clip: rect(0px, 75px, 150px, 0px);
+			background-color: #1EE80C;
+		}
+	</style>
+	{% endif %}
+
+	<style>
+		@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+
+		body {
+			font-family: "Roboto", sans-serif;
+			background:#fff;
+			text-align: center;
+			margin-right: 25px;
+			margin-left: 25px;
+		}
+
+		h2 {
+			font-weight: bold;
+		}
+
+		a {
+			font-style: italic;
+			font-size: 16px;
+		}
+
+		.circle-wrap {
+			margin: 30px auto;
+			width: 150px;
+			height: 150px;
+			background: #CCD5E8;
+			border-radius: 50%;
+		}
+
+		.circle-wrap .circle .mask,
+		.circle-wrap .circle .fill {
+			width: 150px;
+			height: 150px;
+			position: absolute;
+			border-radius: 50%;
+		}
+
+		.circle-wrap .circle .mask {
+			clip: rect(0px, 150px, 150px, 75px);
+		}
+
+		.circle-wrap .inside-circle {
+			width: 110px;
+			height: 110px;
+			border-radius: 50%;
+			background: #fff;
+			line-height: 112px;
+			text-align: center;
+			margin-top: 19px;
+			margin-left: 20px;
+			position: absolute;
+			z-index: 100;
+			font-weight: 600;
+			font-size: 2em;
+		}
+	</style>
+
+	<form method="get">
+		<input type="hidden" id="urlName" name="u">
+	</form>
+
+	<p id="urlName"></p>
+
+	<div class="circle-wrap">
+		<div class="circle">
+			<div class="mask full">
+				<div class="fill"></div>
+			</div>
+
+			<div class="mask half">
+				<div class="fill"></div>
+			</div>
+
+			<div class="inside-circle">
+				{{ fin_totFake|floatformat }}%
+			</div>
+		</div>
+	</div>
+
+	<h2 style="text-align: center;">
+		{% if fin_totFake >= 66 %}
+			Fake / Sketchy
+		{% elif fin_totFake < 66 and fin_totFake >= 33 %}
+			Fair / Questionable
+		{% elif fin_totFake >= 0 and fin_totFake < 33 %}
+			True / Mostly True
+		{% endif %}
+	</h2>
+
+	<h5>Website: <a href="{{ url }}">{{ headline }}</a><br></h5>
+	<br>
+	<h5>Probability of Fake: {{ fin_probabilities.0|floatformat }}%</h5>
+	<h5>Probability of Sketchy: {{ fin_probabilities.1|floatformat }}%</h5>
+	<h5>Probability of Mostly True: {{ fin_probabilities.2|floatformat }}%</h5>
+	<h5>Probability of True: {{ fin_probabilities.3|floatformat }}%</h5>
+	<hr><br>
+
+	</body>
+</html>
