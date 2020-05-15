@@ -71,7 +71,7 @@ I used multiple languages for this project, namely Python, JavaScript, HTML, and
 
 ---
 
-![alt text](screenshot.png)
+![alt text](./screenshots/screenshot.png)
 
 ---
 
@@ -85,7 +85,7 @@ I used multiple languages for this project, namely Python, JavaScript, HTML, and
 
 ---
 
-![alt text](screenshot1.png)
+![alt text](./screenshots/screenshot1.png)
 
 ---
 
