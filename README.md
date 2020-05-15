@@ -1,6 +1,20 @@
 # detection
 
-Detection is a Senior Project created by Colton McEwen.
+Detection is a Senior Project created by Colton McEwen
+
+NOTE: In order to pull the large `.sav` files, `lfs` needs to be installed. Once installed:
+
+*Initalize inside repo directory*
+```
+git lfs install
+```
+
+*Then pull from the repo*
+```
+git lfs pull
+```
+
+*Install Git Large File Storage (LFS):* [https://git-lfs.github.com](https://git-lfs.github.com)
 
 ## **Problem**
 
