@@ -1,6 +1,6 @@
 # detection
 
-Detection is a Senior Project created by Colton McEwen
+Detection is a Senior Project created by Colton McEwen (Spring 2020)
 
 NOTE: In order to pull the large `.sav` files, `lfs` needs to be installed. Once installed:
 
