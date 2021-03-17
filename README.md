@@ -41,7 +41,7 @@ I used multiple languages for this project, namely Python, JavaScript, HTML, and
 - Two datasets were used from Ad Fontes Media and FakeNewsNet. Both contained a thousand or so URLs containing news articles. One had a bias score next to each URL, and the other simply had a TRUE/FALSE statement next to each URL. Both datasets were edited to have the same scoring to maintain consistency. 
 - Several Python scripts were created to prepare the data, starting with the ability to load each URL with the urllib3 Python library.
 - Scraping the data strained any unnecessary characters, tags, punctuation, etc. and token words using the BeautifulSoup library.
-- Once the data was stripped of the things mentioned above, the data then got stemmed (ie. chewing  chew) using the PorterStemmer library by comparing each word to a large dictionary found online.
+- Once the data was stripped of the things mentioned above, the data then got stemmed (ie. chewing -> chew) using the PorterStemmer library by comparing each word to a large dictionary found online.
 - The data is then sent to the database where it now contains a set of articles, each with its corresponding URL, stemmed words, and score telling us if it is:
     - True = 4
     - Mostly True = 3
